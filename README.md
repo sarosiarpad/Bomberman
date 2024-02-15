@@ -15,4 +15,4 @@ Java, libGDX
 - Inteligens szörnyek [1]
 - Három játékos [1]
 - Hátráltató bónuszok [0.5]
-- Testreszabható vezérlés [0.5]
+- Testreszabható vezérlés [0.5]xd
