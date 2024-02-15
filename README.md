@@ -15,4 +15,10 @@ Java, libGDX
 - Inteligens szörnyek [1]
 - Három játékos [1]
 - Hátráltató bónuszok [0.5]
-- Testreszabható vezérlés [0.5]xd
+- Testreszabható vezérlés [0.5]
+
+## Diagramok készítése
+
+- Osztálydiagram - Árpád
+- Esetdiagram - Ádám
+- minden más diagram - Peti
