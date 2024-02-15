@@ -22,4 +22,3 @@ Java, libGDX
 - Osztálydiagram - Árpád
 - Esetdiagram - Ádám
 - minden más diagram - Peti
-...
