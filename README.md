@@ -1,3 +1,5 @@
 ## 03. 04
--Osztályok létrehozása
--Alapok megírása
+    -Map osztály létrehozása
+        -Előre megírt txt fájlból generál egy pályát
+
+    -BomberGame create, render, dispose funkciók kezdetleges implementálása
