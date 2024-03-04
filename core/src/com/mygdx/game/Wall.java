@@ -7,9 +7,14 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Wall{
-    private boolean breakable = false;
-    public Wall(Texture texture){
-        super(texture);
+    private final int width = 100;
+    private final int height = 100;
+    private final Texture texture = "wall.png";
+    private int x;
+    private int y;
+
+    public Wall(int x, int y){
+        super(texture, width, height);
+        setPosition(x, y);
     }
-    public boolean getBreakable() { return breakable; }
 }

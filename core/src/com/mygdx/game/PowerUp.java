@@ -41,12 +41,15 @@ public enum PowerUp{
         this.description = description;
         this.textureName = textureName;
     }
+
     public String getName() {
         return name;
     }
+
     public String getDescription() {
         return description;
     }
+
     public String getTextureName() {
         return textureName;
     }
