@@ -6,7 +6,7 @@ public class Box extends Sprite {
     private PowerUp powerup;
     private final int width = 100;
     private final int height = 100;
-    private final Texture texture = "box.png";
+    private final Texture texture = "textures/box.png";
     private int x;
     private int y;
 
