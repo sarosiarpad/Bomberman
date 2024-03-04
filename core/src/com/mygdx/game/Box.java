@@ -1,17 +1,17 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import java.util.Random;
 
-public class Box extends Sprite{
+public class Box{
+    private final String texture = "box.png"
 
-    private boolean breakable = true;
-    public Box(Texture texture){
-        super(texture);
+    public Box(){}
+    public Box(String texture){
+        this.texture = texture;
     }
-    public boolean getBreakable() { return breakable; }
 
-
+    public PowerUp break(){
+        PowerUp[] powerUps = PowerUp.values();
+        return powerUps[new Random().nextInt(powerUps.length)];
+    }
 }
