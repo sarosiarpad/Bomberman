@@ -9,12 +9,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Wall{
     private final int width = 100;
     private final int height = 100;
-    private final Texture texture = "textures/wall.png";
     private int x;
     private int y;
 
     public Wall(int x, int y){
-        super(texture, width, height);
+        super(new Texture("textures/wall.png"));
         setPosition(x, y);
+        setBounds(x, y, width, height);
     }
 }
