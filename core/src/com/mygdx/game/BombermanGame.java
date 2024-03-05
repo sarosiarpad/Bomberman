@@ -11,7 +11,6 @@ import java.util.List;
 
 public class BombermanGame extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
 	List<Wall> walls = new ArrayList<>();
 	List<Box> boxes = new ArrayList<>();
 	
@@ -43,7 +42,6 @@ public class BombermanGame extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
 		for (Wall wall : walls) {
 			wall.getTexture().dispose();
 		}

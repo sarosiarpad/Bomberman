@@ -15,6 +15,12 @@ public class DesktopLauncher {
 
 		Settings.setScreen();
 
+		if(Settings.isFullscreen()){
+			config.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
+		}else{
+			config.setWindowedMode(Settings.getScreenWidth(), Settings.getScreenHeight());
+		}
+
 		config.setWindowedMode(Settings.getScreenWidth(), Settings.getScreenHeight());
 
 		new Lwjgl3Application(new BombermanGame(), config);
