@@ -9,8 +9,8 @@ import java.util.Random;
 
 public class Box extends Sprite {
     private PowerUp powerup;
-    public Box(int x, int y) {
-        super(new Texture("box.png"), 50, 50);
+    public Box(int x, int y, int size) {
+        super(new Texture("box.png"), size, size);
         setPosition(x, y);
 
         PowerUp[] powerups = PowerUp.values();

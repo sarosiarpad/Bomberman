@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
+    private static int width = Settings.getScreenWidth();
+    private static int height = Settings.getScreenHeight();
 
     public static void generateMap(List<Wall> walls, List<Box> boxes) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("assets/maps/map1.txt"));
@@ -18,10 +20,10 @@ public class Map {
             for (String tile : tiles) {
                 switch (tile) {
                     case "1":
-                        walls.add(new Wall(x * 50, y * 50));
+                        walls.add(new Wall(x * (height/12), y * (height/12), (height/12)));
                         break;
                     case "2":
-                        boxes.add(new Box(x * 50, y * 50));
+                        boxes.add(new Box(x * (height/12), y * (height/12), (height/12)));
                         break;
                     default:
                         // Ha az érték nem 1 vagy 2, nincs semmi teendő
