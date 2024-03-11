@@ -28,7 +28,7 @@ public class Map {
             rawDigits = new int[N][N];
 
             for (int c = 0; c < first_line.length(); ++c) {
-                rawDigits[0][c] = first_line.charAt(c);
+                rawDigits[0][c] = Character.getNumericValue(first_line.charAt(c));
             }
 
             String line;
