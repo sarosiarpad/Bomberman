@@ -24,7 +24,7 @@ public class Player extends Sprite implements InputProcessor  {
     private final HashMap<Direction, Integer> keys;
 
     public Player(int bombCount, float speed, Vector2 position, int[][] rawMap) {
-        super(new Texture("player.jpg"), Map.BLOCK_SIZE,Map.BLOCK_SIZE);
+        super(new Texture("player.png"), Map.BLOCK_SIZE,Map.BLOCK_SIZE);
 
         col = 3 * Map.BLOCK_SIZE;
         row = 4 * Map.BLOCK_SIZE;
