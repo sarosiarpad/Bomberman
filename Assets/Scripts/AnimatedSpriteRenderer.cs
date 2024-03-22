@@ -1,4 +1,3 @@
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class AnimatedSpriteRenderer : MonoBehaviour
@@ -26,17 +25,22 @@ public class AnimatedSpriteRenderer : MonoBehaviour
     private void NextFrame()
     {
         frameIndex++;
-        if (shouldLoop && frameIndex >= activeSprites.Length) {
+        if (shouldLoop && frameIndex >= activeSprites.Length)
+        {
             frameIndex = 0;
         }
 
-        if (isIdle) {
+        if (isIdle)
+        {
             spriteRenderer.sprite = idleSprite;
-        } else if (frameIndex < activeSprites.Length){
+        }
+        else if (frameIndex < activeSprites.Length)
+        {
             spriteRenderer.sprite = activeSprites[frameIndex];
         }
     }
-    private void Start(){
+    private void Start()
+    {
         InvokeRepeating(nameof(NextFrame), animationTime, animationTime);
     }
 }
