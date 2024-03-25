@@ -131,3 +131,5 @@ crashlytics-build.properties
 
 # Vuforia license
 QCAR/somedata16
+
+.idea/

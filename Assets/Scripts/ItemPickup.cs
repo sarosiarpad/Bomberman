@@ -35,7 +35,7 @@ public class NewBehaviourScript : MonoBehaviour
                 break;
 
             case ItemType.FireDown:
-                StartCoroutine(FireDown(60f));
+                StartCoroutine(FireDown(30f));
                 break;
 
             case ItemType.BombUp:
@@ -43,59 +43,57 @@ public class NewBehaviourScript : MonoBehaviour
                 break;
 
             case ItemType.NoBomb:
-                StartCoroutine(NoBomb(20f));
+                StartCoroutine(NoBomb(30f));
                 break;
 
             case ItemType.InstantPlace:
-                StartCoroutine(InstantPlace(20f));
+                StartCoroutine(InstantPlace(30f));
                 break;
 
             case ItemType.SpeedDown:
-                StartCoroutine(SpeedDown(40f));
+                StartCoroutine(SpeedDown(30f));
                 break;
 
         }
 
-        Destroy(gameObject);
+        gameObject.GetComponent<Renderer>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+
 
         IEnumerator FireDown(float duration)
         {
             int currentRadius = player.GetComponent<BombController>().expRadius;
-
             player.GetComponent<BombController>().expRadius = 1;
-
             yield return new WaitForSeconds(duration);
-
             player.GetComponent<BombController>().expRadius = currentRadius;
+            Destroy(gameObject);
 
         }
 
         IEnumerator NoBomb(float duration)
         {
             player.GetComponent<BombController>().canPlace = false;
-
             yield return new WaitForSeconds(duration);
-
+            Destroy(gameObject);
             player.GetComponent<BombController>().canPlace = true;
+            Destroy(gameObject);
         }
 
         IEnumerator InstantPlace(float duration)
         {
             player.GetComponent<BombController>().instantPlace = true;
-
             yield return new WaitForSeconds(duration);
-
             player.GetComponent<BombController>().instantPlace = false;
+            Destroy(gameObject);
         }
 
         IEnumerator SpeedDown(float duration)
         {
             float currentSpeed = player.GetComponent<MovementController>().speed;
             player.GetComponent<MovementController>().speed = 2.5f;
-
             yield return new WaitForSeconds(duration);
-
             player.GetComponent<MovementController>().speed = currentSpeed;
+            Destroy(gameObject);
         }
     }
 }
