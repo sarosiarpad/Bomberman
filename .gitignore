@@ -11,6 +11,8 @@
 .vs/
 .vscode/
 
+.idea/
+
 # Rider User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
