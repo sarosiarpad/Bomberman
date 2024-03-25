@@ -318,9 +318,9 @@ MonoBehaviour:
   expRadius: 2
   expLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  destructibleTiles: {fileID: 0}
-  destructiblePrefab: {fileID: 0}
+    m_Bits: 64
+  destructibleTiles: {fileID: 1839455098}
+  destructiblePrefab: {fileID: 5433492649957417440, guid: 44b558cb784a74e0482eddaf85400f09, type: 3}
 --- !u!1 &317381606
 GameObject:
   m_ObjectHideFlags: 0
