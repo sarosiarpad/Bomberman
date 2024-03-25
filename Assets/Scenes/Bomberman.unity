@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88492639}
   - component: {fileID: 88492638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,6 +309,11 @@ MonoBehaviour:
   expBlueprint: {fileID: 9078617147563917825, guid: 4d26f2ef02344cc40bf152f4bd85683e, type: 3}
   expDuration: 1
   expRadius: 1
+  expLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  destructibleTiles: {fileID: 1839455098}
+  destructiblePrefab: {fileID: 5433492649957417440, guid: 44b558cb784a74e0482eddaf85400f09, type: 3}
 --- !u!1 &317381606
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +739,7 @@ GameObject:
   - component: {fileID: 1537907281}
   - component: {fileID: 1537907280}
   - component: {fileID: 1537907279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Indestructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3280,7 +3285,7 @@ GameObject:
   - component: {fileID: 1839455098}
   - component: {fileID: 1839455097}
   - component: {fileID: 1839455096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Destructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

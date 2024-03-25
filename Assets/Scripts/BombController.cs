@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BombController : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class BombController : MonoBehaviour
     public int expRadius = 1;
     public LayerMask expLayerMask;
 
+    [Header("Destructible")]
+    // Reference to a wall that's being destroyes
+    public Tilemap destructibleTiles;
+    public Destructible destructiblePrefab;
+
     private void Update()
     {
         if (Input.GetKeyDown(placeBombCode))
@@ -39,6 +45,9 @@ public class BombController : MonoBehaviour
         yield return new WaitForSeconds(bombDuration);
 
         pos = bomb.transform.position;
+        pos.x = Mathf.Round(pos.x);
+        pos.y = Mathf.Round(pos.y);
+
         Explosion exp = Instantiate(expBlueprint, pos, Quaternion.identity);
         exp.SetActiveRenderer(exp.start);
         Destroy(exp.gameObject, expDuration);
@@ -53,15 +62,15 @@ public class BombController : MonoBehaviour
 
     private void Explode(Vector2 position, Vector2 direction, int len)
     {
-        if (len < 1)
+        if (len <= 0)
         {
             return;
         }
 
         position += direction;
-        // if the object at the next pos is a 'collider' (brick) then do nothing
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, expLayerMask))
         {
+            ClearDestructible(position);
             return;
         }
 
@@ -72,5 +81,17 @@ public class BombController : MonoBehaviour
         Destroy(exp.gameObject, expDuration);
 
         Explode(position, direction, len - 1);
+    }
+
+    private void ClearDestructible(Vector2 position)
+    {
+        Vector3Int cell = destructibleTiles.WorldToCell(position);
+        TileBase tile = destructibleTiles.GetTile(cell);
+
+        if (tile != null)
+        {
+            Instantiate(destructiblePrefab, position, Quaternion.identity);
+            destructibleTiles.SetTile(cell, null);
+        }
     }
 }
