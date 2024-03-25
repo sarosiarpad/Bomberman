@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,6 +12,19 @@ public class BombController : MonoBehaviour
     public KeyCode placeBombCode = KeyCode.Space;
     // Bombs time to live
     public float bombDuration = 3f;
+    // Max bomb capacity
+    public int bombCapacity = 3;
+    // Current bombs
+    public int availableBombs = 3;
+    // Reloading bomb
+    public int reloadingBombs = 0;
+    // Bomb restore time
+    public float bombRestoreTime = 20f;
+    // Can place bomb boolean (after placing bomb it turns false)
+    public bool canPlace = true;
+    // Bomb cooldown time
+    public float bombCooldown = 3f;
+
 
     [Header("Explosion")]
     // Reference to the bomb object in game
@@ -28,9 +42,17 @@ public class BombController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(placeBombCode))
+        if (Input.GetKeyDown(placeBombCode) && availableBombs > 0 && canPlace)
         {
             StartCoroutine(PlaceBomb());
+            availableBombs--;
+            canPlace = false;
+            StartCoroutine(BombCooldown());
+        }
+
+        if(availableBombs + reloadingBombs < bombCapacity)
+        {
+            StartCoroutine(RestoreBombRoutine());
         }
     }
 
@@ -93,5 +115,19 @@ public class BombController : MonoBehaviour
             Instantiate(destructiblePrefab, position, Quaternion.identity);
             destructibleTiles.SetTile(cell, null);
         }
+    }
+
+    private IEnumerator BombCooldown()
+    {
+        yield return new WaitForSeconds(bombCooldown);
+        canPlace = true;
+    }
+
+    private IEnumerator RestoreBombRoutine()
+    {
+        reloadingBombs++;
+        yield return new WaitForSeconds(bombRestoreTime);
+        reloadingBombs--;
+        availableBombs++;
     }
 }
