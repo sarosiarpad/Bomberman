@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 310178655}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,14 +306,21 @@ MonoBehaviour:
   bombBlueprint: {fileID: 8324524956013722520, guid: 8c8df16b0d181424aa342f3dde895c04, type: 3}
   placeBombCode: 32
   bombDuration: 3
+  bombCapacity: 3
+  availableBombs: 3
+  reloadingBombs: 0
+  bombRestoreTime: 20
+  canPlace: 1
+  bombCooldown: 3
+  instantPlace: 0
   expBlueprint: {fileID: 9078617147563917825, guid: 4d26f2ef02344cc40bf152f4bd85683e, type: 3}
   expDuration: 1
-  expRadius: 1
+  expRadius: 2
   expLayerMask:
     serializedVersion: 2
-    m_Bits: 64
-  destructibleTiles: {fileID: 1839455098}
-  destructiblePrefab: {fileID: 5433492649957417440, guid: 44b558cb784a74e0482eddaf85400f09, type: 3}
+    m_Bits: 0
+  destructibleTiles: {fileID: 0}
+  destructiblePrefab: {fileID: 0}
 --- !u!1 &317381606
 GameObject:
   m_ObjectHideFlags: 0

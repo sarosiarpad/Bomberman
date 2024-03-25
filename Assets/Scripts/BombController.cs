@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,6 +25,8 @@ public class BombController : MonoBehaviour
     public bool canPlace = true;
     // Bomb cooldown time
     public float bombCooldown = 3f;
+    //InsantPlace is needed for the ItemPickups.cs
+    public bool instantPlace = false;
 
 
     [Header("Explosion")]
@@ -32,7 +35,7 @@ public class BombController : MonoBehaviour
     // Explosions time to live
     public float expDuration = 1f;
     // How many tiles does the explosion grow per tick
-    public int expRadius = 1;
+    public int expRadius = 2;
     public LayerMask expLayerMask;
 
     [Header("Destructible")]
@@ -42,7 +45,7 @@ public class BombController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(placeBombCode) && availableBombs > 0 && canPlace)
+        if ((Input.GetKeyDown(placeBombCode) || instantPlace) && availableBombs > 0 && canPlace)
         {
             StartCoroutine(PlaceBomb());
             availableBombs--;
