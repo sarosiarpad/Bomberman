@@ -14,7 +14,11 @@ public class MovementController : MonoBehaviour
     public AnimatedSpriteRenderer downRenderer;
     public AnimatedSpriteRenderer leftRenderer;
     public AnimatedSpriteRenderer rightRenderer;
+    public AnimatedSpriteRenderer deathRenderer;
     private AnimatedSpriteRenderer activeRenderer;
+
+    // For testing
+    public bool immortal = false;
 
     private void Awake()
     {
@@ -58,5 +62,31 @@ public class MovementController : MonoBehaviour
         Vector2 translation = speed * Time.fixedDeltaTime * direction;
 
         body.MovePosition(pos + translation);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Explosion") && !immortal)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        enabled = false;
+        gameObject.GetComponent<BombController>().enabled = false;
+        upRenderer.enabled = false;
+        downRenderer.enabled = false;
+        leftRenderer.enabled = false;
+        rightRenderer.enabled = false;
+        deathRenderer.enabled = true;
+
+        Invoke(nameof(OnDeathEnded), 1.25f);
+    }
+
+    private void OnDeathEnded()
+    {
+        gameObject.SetActive(false);
     }
 }

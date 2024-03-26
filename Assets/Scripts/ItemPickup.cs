@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ItemPickup : MonoBehaviour
 {
     public enum ItemType
     {
@@ -28,30 +28,34 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnItemPickup(GameObject player)
     {
+        PowerUpController powerUpController = player.GetComponent<PowerUpController>();
+
         switch (type)
         {
             case ItemType.FireUp:
                 player.GetComponent<BombController>().expRadius++;
-                break;
-
-            case ItemType.FireDown:
-                StartCoroutine(FireDown(30f));
+                Destroy(gameObject);
                 break;
 
             case ItemType.BombUp:
                 player.GetComponent<BombController>().bombCapacity++;
+                Destroy(gameObject);
+                break;
+
+            case ItemType.FireDown:
+                powerUpController.ApplyPowerup(type, StartCoroutine(FireDown(30f)));
                 break;
 
             case ItemType.NoBomb:
-                StartCoroutine(NoBomb(30f));
+                powerUpController.ApplyPowerup(type, StartCoroutine(NoBomb(30f)));
                 break;
 
             case ItemType.InstantPlace:
-                StartCoroutine(InstantPlace(30f));
+                powerUpController.ApplyPowerup(type, StartCoroutine(InstantPlace(30f)));
                 break;
 
             case ItemType.SpeedDown:
-                StartCoroutine(SpeedDown(30f));
+                powerUpController.ApplyPowerup(type, StartCoroutine(SpeedDown(30f)));
                 break;
 
         }

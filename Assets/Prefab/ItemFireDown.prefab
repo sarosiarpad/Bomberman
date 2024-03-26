@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5723192601669043686}
   - component: {fileID: 7096728148235708126}
   - component: {fileID: 4839694798289795631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ItemFireDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
