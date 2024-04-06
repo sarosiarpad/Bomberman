@@ -88,5 +88,6 @@ public class MovementController : MonoBehaviour
     private void OnDeathEnded()
     {
         gameObject.SetActive(false);
+        FindAnyObjectByType<GameManager>().CheckWinState();
     }
 }
