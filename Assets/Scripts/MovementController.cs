@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -88,6 +89,7 @@ public class MovementController : MonoBehaviour
     private void OnDeathEnded()
     {
         gameObject.SetActive(false);
-        FindAnyObjectByType<GameManager>().CheckWinState();
+        FindAnyObjectByType<GameOver>().Setup("uram");
+        SceneManager.LoadScene("GameOver");
     }
 }

@@ -318,7 +318,7 @@ MonoBehaviour:
   leftRenderer: {fileID: 1129042664}
   rightRenderer: {fileID: 621785022}
   deathRenderer: {fileID: 1980290084}
-  immortal: 1
+  immortal: 0
 --- !u!58 &310178652
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   leftRenderer: {fileID: 1502906006}
   rightRenderer: {fileID: 1049019297}
   deathRenderer: {fileID: 1739193390}
-  immortal: 1
+  immortal: 0
 --- !u!58 &1405309701
 CircleCollider2D:
   m_ObjectHideFlags: 0
