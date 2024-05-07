@@ -24,10 +24,6 @@ public class MonsterController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         activeRenderer = downRenderer;
-    }
-
-    private void Start()
-    {
         StartCoroutine(SetDirectionCoroutine());
     }
 
@@ -72,8 +68,9 @@ public class MonsterController : MonoBehaviour
 
             activeRenderer.isIdle = direction == Vector2.zero;
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
         }
+        
     }
 
     private void FixedUpdate()
@@ -93,17 +90,24 @@ public class MonsterController : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("palyer hit");
-            Hit(collision.gameObject);
+            StartCoroutine(Hit(collision.gameObject));
         }
     }
 
-    private void Hit(GameObject player)
+    private IEnumerator Hit(GameObject player)
     {
         StopCoroutine(SetDirectionCoroutine());
-        activeRenderer = hitRenderer;
+
+        upRenderer.enabled = false;
+        downRenderer.enabled = false;
+        leftRenderer.enabled = false;
+        rightRenderer.enabled = false;
+        hitRenderer.enabled = true;
         player.GetComponent<MovementController>().Death();
         StartCoroutine(SetDirectionCoroutine());
+
+        yield return new WaitForSeconds(1f);
+        hitRenderer.enabled = false;
     }
 
     private void Death()

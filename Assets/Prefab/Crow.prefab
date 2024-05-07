@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5859034065769885244}
   - component: {fileID: 5819271799183098201}
   - component: {fileID: 3704112738353311543}
+  - component: {fileID: 7515241316023007777}
   - component: {fileID: 5235942665206695257}
   m_Layer: 3
   m_Name: Crow
@@ -99,7 +100,42 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0.3}
+  m_Offset: {x: 0, y: 0.3}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!58 &7515241316023007777
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386904729898411434}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &5235942665206695257
@@ -196,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1881168656, guid: 29c2a706546aa254ca22cc74b7d5ff3f, type: 3}
+  m_Sprite: {fileID: 941038384, guid: d7ff955084afd2840ae65a1e9bebcf86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -222,12 +258,12 @@ MonoBehaviour:
   animationTime: 0.1666667
   frameIndex: 0
   activeSprites:
-  - {fileID: -1881168656, guid: 29c2a706546aa254ca22cc74b7d5ff3f, type: 3}
-  - {fileID: 2064598239, guid: 29c2a706546aa254ca22cc74b7d5ff3f, type: 3}
-  - {fileID: -516564896, guid: 29c2a706546aa254ca22cc74b7d5ff3f, type: 3}
-  - {fileID: -186041471, guid: 29c2a706546aa254ca22cc74b7d5ff3f, type: 3}
-  - {fileID: 869969812, guid: 29c2a706546aa254ca22cc74b7d5ff3f, type: 3}
-  idleSprite: {fileID: -1881168656, guid: 29c2a706546aa254ca22cc74b7d5ff3f, type: 3}
+  - {fileID: 941038384, guid: d7ff955084afd2840ae65a1e9bebcf86, type: 3}
+  - {fileID: -409468560, guid: d7ff955084afd2840ae65a1e9bebcf86, type: 3}
+  - {fileID: 1666602256, guid: d7ff955084afd2840ae65a1e9bebcf86, type: 3}
+  - {fileID: 1394794663, guid: d7ff955084afd2840ae65a1e9bebcf86, type: 3}
+  - {fileID: 1856370255, guid: d7ff955084afd2840ae65a1e9bebcf86, type: 3}
+  idleSprite: {fileID: 941038384, guid: d7ff955084afd2840ae65a1e9bebcf86, type: 3}
   isIdle: 0
   shouldLoop: 0
 --- !u!1 &2732665330281535938
@@ -731,7 +767,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1487666947, guid: 2171590668a21f7449cd3f8bbf5be1f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -764,5 +800,5 @@ MonoBehaviour:
   - {fileID: -259814752, guid: 2171590668a21f7449cd3f8bbf5be1f3, type: 3}
   - {fileID: -596848590, guid: 2171590668a21f7449cd3f8bbf5be1f3, type: 3}
   idleSprite: {fileID: -1487666947, guid: 2171590668a21f7449cd3f8bbf5be1f3, type: 3}
-  isIdle: 1
-  shouldLoop: 1
+  isIdle: 0
+  shouldLoop: 0
