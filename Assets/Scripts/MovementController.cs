@@ -89,7 +89,5 @@ public class MovementController : MonoBehaviour
     private void OnDeathEnded()
     {
         gameObject.SetActive(false);
-        FindAnyObjectByType<GameOver>().Setup("uram");
-        SceneManager.LoadScene("GameOver");
     }
 }
