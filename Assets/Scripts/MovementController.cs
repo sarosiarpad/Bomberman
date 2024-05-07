@@ -73,7 +73,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void Death()
+    public void Death()
     {
         enabled = false;
         gameObject.GetComponent<BombController>().enabled = false;
