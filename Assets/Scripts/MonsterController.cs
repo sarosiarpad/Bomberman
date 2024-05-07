@@ -93,6 +93,7 @@ public class MonsterController : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            Debug.Log("palyer hit");
             Hit(collision.gameObject);
         }
     }

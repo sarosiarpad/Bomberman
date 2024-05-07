@@ -113,12 +113,12 @@ TextureImporter:
       name: crow_walk_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 10
-        width: 45.25
-        height: 44
+        x: 13
+        y: 9
+        width: 40
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,11 +135,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 75
-        y: 10
-        width: 45.25
-        height: 44
+        y: 9
+        width: 40
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: crow_walk_2
       rect:
         serializedVersion: 2
-        x: 135
+        x: 140
         y: 10
-        width: 45.25
-        height: 44
+        width: 40
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: crow_walk_3
       rect:
         serializedVersion: 2
-        x: 195
-        y: 10
-        width: 45.25
-        height: 44
+        x: 204
+        y: 9
+        width: 40
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
