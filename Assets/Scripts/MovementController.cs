@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
+    public GameController gameController;
+
     public Rigidbody2D body { get; private set; }
     public float speed = 5f;
     private Vector2 direction = Vector2.down;
@@ -89,5 +91,12 @@ public class MovementController : MonoBehaviour
     private void OnDeathEnded()
     {
         gameObject.SetActive(false);
+
+        Invoke(nameof(callGameOverChecker), 3f);        // can not call the gameController.checkGameOver() in the Invoke function
+    }
+
+    void callGameOverChecker()
+    {
+        gameController.checkGameOver();
     }
 }

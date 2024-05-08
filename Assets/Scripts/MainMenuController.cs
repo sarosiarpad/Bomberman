@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuController : MonoBehaviour
 {
     public GameObject MainPage;
     public GameObject StartGamePage;
-    public GameObject StartGamePageBackButton;
 
     private void Start()
     {

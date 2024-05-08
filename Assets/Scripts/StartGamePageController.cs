@@ -6,31 +6,38 @@ using UnityEngine.UI;
 
 public class StartGamePageController : MonoBehaviour
 {
-
+    public MainMenuController mainMenuController;
+    public GameController gameController;
     public Button StartNewGameButton;
     public Slider slider;
-    public GameController gameController;
-
-    private int playerCount;
+    public Button BackToMainButton;
     
     void Start()
     {
         slider.minValue = 2;
         slider.maxValue = 3;
-        slider.value = playerCount = 2;
+        slider.value =  2;
 
+        StartNewGameButton.onClick.AddListener(onStartNewGameButtonClick);
         slider.onValueChanged.AddListener(onSliderValueChanged);
-        StartNewGameButton.onClick.AddListener(OnStartGameButtonClick);
+        BackToMainButton.onClick.AddListener(onBackToMainClick);
     }
 
-    void onSliderValueChanged(float value)
+    public void onSliderValueChanged(float value)
     {
-        playerCount = (int)value;
+        slider.value = (int)value;
     }
 
-    void OnStartGameButtonClick()
+    public void onStartNewGameButtonClick()
     {
-        Debug.Log("clicked");
-        gameController.StartNewGame(playerCount);
+        int playerCount = (int)slider.value;
+        gameController.setPlayerCounter(playerCount);
+        gameController.StartNewGame();
+    }
+
+    public void onBackToMainClick()
+    {
+        gameController.BacktoMain();
+        mainMenuController.BackToMain();
     }
 }

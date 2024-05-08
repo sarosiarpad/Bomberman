@@ -6,15 +6,34 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject game;
+    public GameObject gameOver;
     public GameObject player1Prefab;
     public GameObject player2Prefab;
     public GameObject player3Prefab;
 
-    public void StartNewGame(int players)
+    public int playerCounter;    // Setted in StartGamePageController by the Slider
+    public string outcome = "";
+
+    private void Start()
+    {
+        mainMenu.SetActive(true);
+        game.SetActive(false);
+        gameOver.SetActive(false);
+    }
+
+    public void BacktoMain()
+    {
+        mainMenu.SetActive(true);
+        game.SetActive(false);
+        gameOver.SetActive(false);
+    }
+
+    public void StartNewGame()
     {
         HideAllPlayers();
-        // Megjelenítjük azokat a játékos prefabokat, amelyek szükségesek
-        switch (players)
+        switch (playerCounter)
         {
             case 2:
                 ShowPlayer(player1Prefab);
@@ -27,8 +46,44 @@ public class GameController : MonoBehaviour
                 break;
         }
 
-        // Játék betöltése
-        SceneManager.LoadScene("Bomberman");
+        mainMenu.SetActive(false);
+        game.SetActive(true);
+        gameOver.SetActive(false);
+    }
+
+    public void checkGameOver()
+    {
+        int aliveCounter = 0;
+
+        if (player1Prefab.activeSelf)
+        {
+            aliveCounter++;
+            outcome = "Player 1 wins";
+        }
+        if (player2Prefab.activeSelf)
+        {
+            aliveCounter++;
+            outcome = "Player 2 wins!";
+        }
+        if (player3Prefab.activeSelf)
+        {
+            aliveCounter++;
+            outcome = "Player 3 wins!";
+        }
+
+        if(aliveCounter == 0)
+        {
+            outcome = "Draw!";
+            mainMenu.SetActive(false);
+            game.SetActive(false);
+            gameOver.SetActive(true);
+        }
+        else if(aliveCounter == 1)
+        {
+            mainMenu.SetActive(false);
+            game.SetActive(false);
+            gameOver.SetActive(true);
+        }
     }
 
     void HideAllPlayers()
@@ -41,5 +96,20 @@ public class GameController : MonoBehaviour
     void ShowPlayer(GameObject playerPrefab)
     {
         playerPrefab.SetActive(true);
+    }
+
+    public void setPlayerCounter(int num)
+    {
+        playerCounter = num;
+    }
+
+    public int getPlayerCounter()
+    {
+        return playerCounter;
+    }
+
+    public string getOutcome()
+    {
+        return outcome;
     }
 }
