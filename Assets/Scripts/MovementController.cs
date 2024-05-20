@@ -5,9 +5,9 @@ public class MovementController : MonoBehaviour
 {
     public GameController gameController;
 
-    public Rigidbody2D body { get; private set; }
+    public Rigidbody2D body { get; set; }
     public float speed = 5f;
-    private Vector2 direction = Vector2.down;
+    public Vector2 direction = Vector2.down;
     public KeyCode UP = KeyCode.W;
     public KeyCode LEFT = KeyCode.A;
     public KeyCode DOWN = KeyCode.S;
@@ -45,7 +45,7 @@ public class MovementController : MonoBehaviour
 
     }
 
-    private void SetDirection(Vector2 newDir, AnimatedSpriteRenderer newRenderer)
+    public void SetDirection(Vector2 newDir, AnimatedSpriteRenderer newRenderer)
     {
         direction = newDir;
 
@@ -59,7 +59,7 @@ public class MovementController : MonoBehaviour
         activeRenderer.isIdle = newDir == Vector2.zero;
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         Vector2 pos = body.position;
         Vector2 translation = speed * Time.fixedDeltaTime * direction;
@@ -67,7 +67,7 @@ public class MovementController : MonoBehaviour
         body.MovePosition(pos + translation);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Explosion") && !immortal)
         {

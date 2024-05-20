@@ -48,8 +48,6 @@ public class BombController : MonoBehaviour
         if ((Input.GetKeyDown(placeBombCode) || instantPlace) && availableBombs > 0 && canPlace)
         {
             StartCoroutine(PlaceBomb());
-            availableBombs--;
-            canPlace = false;
             StartCoroutine(BombCooldown());
         }
 
@@ -59,8 +57,11 @@ public class BombController : MonoBehaviour
         }
     }
 
-    private IEnumerator PlaceBomb()
+    public IEnumerator PlaceBomb()
     {
+        availableBombs -= 1;
+        canPlace = false;
+
         Vector2 pos = transform.position;
         pos.x = Mathf.Round(pos.x);
         pos.y = Mathf.Round(pos.y);

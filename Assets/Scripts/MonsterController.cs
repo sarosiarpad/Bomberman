@@ -7,7 +7,7 @@ public class MonsterController : MonoBehaviour
 {
     public Rigidbody2D body { get; private set; }
     public float speed = 5f;
-    private Vector2 direction = Vector2.down;
+    public Vector2 direction = Vector2.down;
 
     public AnimatedSpriteRenderer upRenderer;
     public AnimatedSpriteRenderer downRenderer;
@@ -15,7 +15,7 @@ public class MonsterController : MonoBehaviour
     public AnimatedSpriteRenderer rightRenderer;
     public AnimatedSpriteRenderer deathRenderer;
     public AnimatedSpriteRenderer hitRenderer;
-    private AnimatedSpriteRenderer activeRenderer;
+    public AnimatedSpriteRenderer activeRenderer;
 
     // For testing
     public bool immortal = false;
@@ -73,7 +73,7 @@ public class MonsterController : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         Vector2 pos = body.position;
         Vector2 translation = speed * Time.fixedDeltaTime * direction;
@@ -81,7 +81,7 @@ public class MonsterController : MonoBehaviour
         body.MovePosition(pos + translation);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Explosion") && !immortal)
         {
@@ -94,7 +94,7 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    private IEnumerator Hit(GameObject player)
+    public IEnumerator Hit(GameObject player)
     {
         StopCoroutine(SetDirectionCoroutine());
 
@@ -110,7 +110,7 @@ public class MonsterController : MonoBehaviour
         hitRenderer.enabled = false;
     }
 
-    private void Death()
+    public void Death()
     {
         enabled = false;
         upRenderer.enabled = false;
