@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class BombController : MonoBehaviour
 {
+    public GameController gameController;
+    private Tilemap activeDestructibleTiles;
+
     [Header("Bomb")]
     // Reference to the bomb object in game
     public GameObject bombBlueprint;
@@ -40,11 +44,12 @@ public class BombController : MonoBehaviour
 
     [Header("Destructible")]
     // Reference to a wall that's being destroyes
-    public Tilemap destructibleTiles;
+    public Tilemap[] destructibleTiles;
     public Destructible destructiblePrefab;
 
     private void Update()
     {
+        activeDestructibleTiles = destructibleTiles[gameController.getGridNum() - 1];
         if ((Input.GetKeyDown(placeBombCode) || instantPlace) && availableBombs > 0 && canPlace)
         {
             StartCoroutine(PlaceBomb());
@@ -111,13 +116,13 @@ public class BombController : MonoBehaviour
 
     private void ClearDestructible(Vector2 position)
     {
-        Vector3Int cell = destructibleTiles.WorldToCell(position);
-        TileBase tile = destructibleTiles.GetTile(cell);
+        Vector3Int cell = activeDestructibleTiles.WorldToCell(position);
+        TileBase tile = activeDestructibleTiles.GetTile(cell);
 
         if (tile != null)
         {
             Instantiate(destructiblePrefab, position, Quaternion.identity);
-            destructibleTiles.SetTile(cell, null);
+            activeDestructibleTiles.SetTile(cell, null);
         }
     }
 

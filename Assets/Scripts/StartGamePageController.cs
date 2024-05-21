@@ -9,29 +9,38 @@ public class StartGamePageController : MonoBehaviour
     public MainMenuController mainMenuController;
     public GameController gameController;
     public Button StartNewGameButton;
-    public Slider slider;
+    public Slider PlayerSlider;
+    public Slider GridSlider;
     public Button BackToMainButton;
     
     void Start()
     {
-        slider.minValue = 2;
-        slider.maxValue = 3;
-        slider.value =  2;
+        PlayerSlider.minValue = 2;
+        PlayerSlider.maxValue = 3;
+        PlayerSlider.value =  2;
 
         StartNewGameButton.onClick.AddListener(onStartNewGameButtonClick);
-        slider.onValueChanged.AddListener(onSliderValueChanged);
+        PlayerSlider.onValueChanged.AddListener(onPlayerSliderValueChange);
+        GridSlider.onValueChanged.AddListener(onGridSliderValueChange);
         BackToMainButton.onClick.AddListener(onBackToMainClick);
     }
 
-    public void onSliderValueChanged(float value)
+    public void onPlayerSliderValueChange(float value)
     {
-        slider.value = (int)value;
+        PlayerSlider.value = (int)value;
+    }
+
+    public void onGridSliderValueChange(float value)
+    {
+        GridSlider.value = (int)value;
     }
 
     public void onStartNewGameButtonClick()
     {
-        int playerCount = (int)slider.value;
+        int playerCount = (int)PlayerSlider.value;
+        int gridNum = (int)GridSlider.value;
         gameController.setPlayerCounter(playerCount);
+        gameController.setGridNum(gridNum);
         gameController.StartNewGame();
     }
 

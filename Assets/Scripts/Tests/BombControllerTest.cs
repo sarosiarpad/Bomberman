@@ -29,7 +29,7 @@ public class BombControllerTest
 
         // Mock the destructible tiles
         destructibleTiles = new GameObject("DestructibleTiles").AddComponent<Tilemap>();
-        bombController.destructibleTiles = destructibleTiles;
+        bombController.destructibleTiles[0] = destructibleTiles;
 
         // Initialize default values
         bombController.bombDuration = 1f;

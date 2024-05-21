@@ -9,6 +9,8 @@ public class MonsterController : MonoBehaviour
     public float speed = 5f;
     public Vector2 direction = Vector2.down;
 
+    private int prev_dir;
+
     public AnimatedSpriteRenderer upRenderer;
     public AnimatedSpriteRenderer downRenderer;
     public AnimatedSpriteRenderer leftRenderer;
@@ -20,10 +22,15 @@ public class MonsterController : MonoBehaviour
     // For testing
     public bool immortal = false;
 
-    private void Awake()
+    private void Start()
     {
         body = GetComponent<Rigidbody2D>();
         activeRenderer = downRenderer;
+        prev_dir = -1;
+    }
+
+    private void OnEnable()
+    {
         StartCoroutine(SetDirectionCoroutine());
     }
 
@@ -31,8 +38,16 @@ public class MonsterController : MonoBehaviour
     {
         while (true)
         {
+            int rand_dir_num;
             System.Random rand = new System.Random();
-            int rand_dir_num = rand.Next(0, 4);
+
+            do
+            {
+                rand_dir_num = rand.Next(0, 4);
+            } while (rand_dir_num == prev_dir);
+
+            prev_dir = rand_dir_num;
+
             AnimatedSpriteRenderer newRenderer;
 
             switch (rand_dir_num)
@@ -97,7 +112,6 @@ public class MonsterController : MonoBehaviour
     public IEnumerator Hit(GameObject player)
     {
         StopCoroutine(SetDirectionCoroutine());
-
         upRenderer.enabled = false;
         downRenderer.enabled = false;
         leftRenderer.enabled = false;
@@ -105,7 +119,6 @@ public class MonsterController : MonoBehaviour
         hitRenderer.enabled = true;
         player.GetComponent<MovementController>().Death();
         StartCoroutine(SetDirectionCoroutine());
-
         yield return new WaitForSeconds(1f);
         hitRenderer.enabled = false;
     }
