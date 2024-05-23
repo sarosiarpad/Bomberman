@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5819271799183098201}
   - component: {fileID: 3704112738353311543}
   - component: {fileID: 7515241316023007777}
-  - component: {fileID: 5235942665206695257}
   m_Layer: 3
   m_Name: Crow
   m_TagString: Player
@@ -138,26 +137,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5235942665206695257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386904729898411434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe2eed9a65a3f149a35a895e96fad13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  upRenderer: {fileID: 4559177989949973860}
-  downRenderer: {fileID: 3049314301534330510}
-  leftRenderer: {fileID: 6636257998756846838}
-  rightRenderer: {fileID: 1934119085540126620}
-  deathRenderer: {fileID: 5104639245948186027}
-  hitRenderer: {fileID: 3674068431479139678}
-  immortal: 0
 --- !u!1 &2332272943130906215
 GameObject:
   m_ObjectHideFlags: 0
