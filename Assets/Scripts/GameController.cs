@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PlasticGui.WorkspaceWindow;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -21,7 +22,9 @@ public class GameController : MonoBehaviour
     public GameObject grid2;
     public GameObject grid3;
 
-    public int playerCounter;    // Setted in StartGamePageController by the Slider
+    public HashSet<GameObject> playerSet = new (3);
+
+    public int playerCounter;    // Set in StartGamePageController by the Slider
     public int gridNum;
     public string outcome = "";
 
@@ -49,11 +52,16 @@ public class GameController : MonoBehaviour
             case 2:
                 ShowPlayer(player1Prefab);
                 ShowPlayer(player2Prefab);
+                playerSet.Add(player1Prefab);
+                playerSet.Add(player2Prefab);
                 break;
             case 3:
                 ShowPlayer(player1Prefab);
                 ShowPlayer(player2Prefab);
                 ShowPlayer(player3Prefab);
+                playerSet.Add(player1Prefab);
+                playerSet.Add(player2Prefab);
+                playerSet.Add(player3Prefab);
                 break;
         }
         switch (gridNum)
@@ -68,7 +76,7 @@ public class GameController : MonoBehaviour
                 ShowGrid(grid3);
                 break;
         }
-        ShowAllMonsters();
+        //ShowAllMonsters();
         mainMenu.SetActive(false);
         game.SetActive(true);
         gameOver.SetActive(false);
@@ -94,14 +102,14 @@ public class GameController : MonoBehaviour
             outcome = "Player 3 wins!";
         }
 
-        if(aliveCounter == 0)
+        if (aliveCounter == 0)
         {
             outcome = "Draw!";
             mainMenu.SetActive(false);
             game.SetActive(false);
             gameOver.SetActive(true);
         }
-        else if(aliveCounter == 1)
+        else if (aliveCounter == 1)
         {
             mainMenu.SetActive(false);
             game.SetActive(false);
