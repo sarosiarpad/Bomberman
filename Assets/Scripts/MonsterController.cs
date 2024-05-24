@@ -38,6 +38,7 @@ public class MonsterController : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("start");
             int rand_dir_num;
             System.Random rand = new System.Random();
 

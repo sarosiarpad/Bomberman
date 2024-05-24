@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
                 ShowGrid(grid3);
                 break;
         }
-        //ShowAllMonsters();
+        ShowAllMonsters();
         mainMenu.SetActive(false);
         game.SetActive(true);
         gameOver.SetActive(false);
