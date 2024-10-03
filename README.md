@@ -8,7 +8,7 @@ is). Egy játékos veszt (és ezáltal ellenfele győz), ha felrobban, vagy ha e
 
 ## Programozási nyelv
 
-Java, libGDX
+C#, Unity
 
 ## Plusz feladatok
 
@@ -16,10 +16,4 @@ Java, libGDX
 - Három játékos [1]
 - Hátráltató bónuszok [0.5]
 - Testreszabható vezérlés [0.5]
-
-## Diagramok készítése
-
-- Osztálydiagram - Árpád
-- Esetdiagram - Ádám
-- minden más diagram - Peti
 
